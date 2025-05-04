@@ -38,7 +38,7 @@ export const Login = () => {
     </div>
 <div className="loginMainContent bg-white p-3">
     <div className="errorMsg mb-3">
-        <h5 className="text-white mb-0 d-flex align-items-center gap-2" style={{backgroundColor: "#c41a1f",fontSize: "12px"}}>
+        <h5 className="text-white mb-0 d-flex align-items-center gap-2" style={{backgroundColor: "#c41a1f",fontSize: "16px"}}>
             <img src={ErrorIcon} alt="error" style={{width: "11px", height: "11px"}}/>
             An error has occurred</h5>
         <div className="p-2">
@@ -61,15 +61,17 @@ export const Login = () => {
             <div className="col-md-8">
                 <div className="labelInput d-flex align-items-center mb-2">
                     <label className="d-flex align-items-start w-25">Username <span className="text-danger">*</span></label>
-                 <div className="d-flex align-items-center gap-2 w-75">
-                    <input
+                 <div className="d-flex align-items-start gap-2 w-75">
+                 <div style={{ width: "520px"}}
+                 >  <input
                         type="text"
                         placeholder="required"                        
-                        style={{height: "22px", width: "520px"}}
                         value={inputUsername}
+                        style={{width: "100%", height: "22px"}}
                         onChange={e => setInputUsername(e.target.value)}
                     />
-                    <img src={Question} data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="question"/>
+                <div className="fieldError"><span><img className="errorBefore" src={ErrorIcon} alt="error"/>Please enter Username. </span></div></div>
+                    <img src={Question} data-toggle="tooltip" className="mt-1"  data-placement="top" title="Tooltip on top" alt="question"/>
                 </div>
                 </div>
             </div>
@@ -78,15 +80,17 @@ export const Login = () => {
         <div className="col-md-8">
                 <div className="labelInput d-flex align-items-center">
                     <label className="d-flex align-items-start w-25">Password <span className="text-danger">*</span></label>
-                    <div className="d-flex align-items-center gap-2 w-75">
+                    <div className="d-flex align-items-start gap-2 w-75">
+                    <div style={{ width: "520px"}}>
                         <input
                             type="password"
                             placeholder="required"                            
-                            value={inputPassword}
-                        style={{height: "22px", width: "520px"}}
+                            value={inputPassword}                        
+                            style={{width: "100%", height: "22px"}}
                             onChange={e => setInputPassword(e.target.value)}
                         />
-                        <img src={Question} data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="question"/>
+                        <div className="fieldError"><span><img className="errorBefore" src={ErrorIcon} alt="error"/>Please enter Password. </span></div></div>
+                        <img src={Question} data-toggle="tooltip" className="mt-1" data-placement="top" title="Tooltip on top" alt="question"/>
                     </div>
                 </div>
             </div>
