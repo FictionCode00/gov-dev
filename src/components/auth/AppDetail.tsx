@@ -15,17 +15,20 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import closeIcon from "../../assets/images/plus-symbol-button.png";
-import { Document, Page, } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+// import { Document, Page, } from 'react-pdf';
+import { Viewer, Worker, SpecialZoomLevel } from "@react-pdf-viewer/core";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
 
-
-import DownloadIcon from '@mui/icons-material/Download';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import DownloadIcon from "@mui/icons-material/Download";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 // import { pdfjs } from 'react-pdf';
 
-import { pdfjs } from 'react-pdf';
-console.log(pdfjs.version)
+import { pdfjs } from "react-pdf";
+console.log(pdfjs.version);
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const style = {
@@ -58,7 +61,7 @@ export const AppDetail = () => {
     setPdfError(null);
     setPageNumber(1);
   };
-    
+
   const userDetail = {
     firstName: "Manish",
     lastName: "Kumar",
@@ -95,25 +98,18 @@ export const AppDetail = () => {
     },
   };
 
-  function onDocumentLoadSuccess({ numPages }:any) {
-    setNumPages(numPages);
-    setPdfError(null);
-    setPageNumber(1);
-  }
-
-  function onDocumentLoadError(error: Error) {
-    console.error('Error loading PDF:', error);
-    setPdfError('Failed to load PDF. Please try downloading instead.');
-  }
+  
 
   const handleDownload = () => {
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = `${window.location.origin}/Manish Kumar visa pdf.pdf`;
-    link.download = 'Manish Kumar visa pdf.pdf';
+    link.download = "Manish Kumar visa pdf.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+
+  const pageNavigationPluginInstance = pageNavigationPlugin();
 
   return (
     <>
@@ -138,7 +134,12 @@ export const AppDetail = () => {
               EGOOME047U
             </h5>
             <div className="d-flex align-items-center gap-2">
-              <img src={PDFfile} onClick={handleOpen} alt="pdf-file" style={{ width: "18px",cursor:"pointer" }} />
+              <img
+                src={PDFfile}
+                onClick={handleOpen}
+                alt="pdf-file"
+                style={{ width: "18px", cursor: "pointer" }}
+              />
               <img src={Question} alt="pdf-file" style={{ width: "20px" }} />
             </div>
           </div>
@@ -177,7 +178,8 @@ export const AppDetail = () => {
                         style={{ backgroundColor: "#dddddd66" }}
                       >
                         <Typography className="blueHeading" component="span">
-                          {userDetail?.lastName}, {userDetail?.firstName} ({userDetail?.dob})
+                          {userDetail?.lastName}, {userDetail?.firstName} (
+                          {userDetail?.dob})
                         </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
@@ -260,117 +262,111 @@ export const AppDetail = () => {
           </ul>
         </div>
         <Modal
-        open={open}
-        onClose={handleClose}
-        className="pdfModal"
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className="border-0 p-4" sx={style}>
-          <Typography id="modal-modal-title">
-            <div className="d-flex justify-content-between align-items-center">
-              <h4 className="mb-0" style={{color: "#0949A4"}}>View correspondence item</h4>
-              <div className="d-flex align-items-center gap-2">
-                <Button
-                  variant="contained"
-                  startIcon={<VisibilityIcon />}
-                  onClick={() => setShowPreview(!showPreview)}
-                  style={{ backgroundColor: "#0949A4" }}
+          open={open}
+          onClose={handleClose}
+          className="pdfModal"
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box className="border-0 p-4" sx={style}>
+            <Typography id="modal-modal-title">
+              <div className="d-flex justify-content-between align-items-center">
+                <h4 className="mb-0" style={{ color: "#0949A4" }}>
+                  View correspondence item
+                </h4>
+                <div className="d-flex align-items-center gap-2">
+                  <Button
+                    variant="contained"
+                    startIcon={<VisibilityIcon />}
+                    onClick={() => setShowPreview(!showPreview)}
+                    style={{ backgroundColor: "#0949A4" }}
+                  >
+                    {showPreview ? "Hide Preview" : "Show Preview"}
+                  </Button>
+                  <Button
+                    variant="contained"
+                    startIcon={<DownloadIcon />}
+                    onClick={handleDownload}
+                    style={{ backgroundColor: "#0949A4" }}
+                  >
+                    Download PDF
+                  </Button>
+                  <div className="addCloseBtn">
+                    <img
+                      src={closeIcon}
+                      alt="close"
+                      onClick={handleClose}
+                      className="img-fluid"
+                      style={{ transform: "rotate(45deg)", cursor: "pointer" }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              <div style={{ marginBottom: "16px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    fontSize: "16px",
+                  }}
                 >
-                  {showPreview ? 'Hide Preview' : 'Show Preview'}
-                </Button>
-                <Button
-                  variant="contained"
-                  startIcon={<DownloadIcon />}
-                  onClick={handleDownload}
-                  style={{ backgroundColor: "#0949A4" }}
-                >
-                  Download PDF
-                </Button>
-                <div className="addCloseBtn">
-                  <img src={closeIcon} alt="close" onClick={handleClose} className="img-fluid" style={{transform: "rotate(45deg)",cursor:"pointer"}}/>
+                  <div>
+                    <strong>Correspondence title:</strong>
+                    <span style={{ marginLeft: 8 }}>{correspondenceTitle}</span>
+                  </div>
+                  <div>
+                    <strong>Date sent:</strong>
+                    <span style={{ marginLeft: 8 }}>{correspondenceDate}</span>
+                  </div>
                 </div>
               </div>
-              
-            </div>
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            <div style={{ marginBottom: "16px" }}>
-              <div style={{ display: "flex", flexDirection:"row", justifyContent: "space-between", fontSize: "16px" }}>
-                <div>
-                  <strong>Correspondence title:</strong>
-                  <span style={{ marginLeft: 8 }}>{correspondenceTitle}</span>
-                </div>
-                <div>
-                  <strong>Date sent:</strong>
-                  <span style={{ marginLeft: 8 }}>{correspondenceDate}</span>
-                </div>
+              <div className="loginMainhead d-flex justify-content-between align-items-center">
+                <h5 className="text-white fw-medium mb-0">
+                  Correspondence details
+                </h5>
               </div>
-            </div>
-            <div className="loginMainhead d-flex justify-content-between align-items-center">
-              <h5 className="text-white fw-medium mb-0">
-                Correspondence details
-              </h5>
-            </div>
-            <div style={{ padding: "10px 16px" }}>
-              <div className="mb-3">
-                <h6 style={{ color: "#1B3564" }}>Manish Kumar visa pdf.pdf</h6>
-              </div>
-              {showPreview && (
-                <div style={{ border: "1px solid #ddd", padding: "20px", borderRadius: "4px" }}>
-                  {pdfError ? (
-                    <div className="text-center text-danger">
-                      <p>{pdfError}</p>
-                    </div>
-                  ) : (
-                    <Document
-                      file={`${window.location.origin}/Manish Kumar visa pdf.pdf`}
-                      onLoadSuccess={onDocumentLoadSuccess}
-                      onLoadError={onDocumentLoadError}
-                      className="d-flex justify-content-center"
-                      loading={
-                        <div className="text-center">
-                          <p>Loading PDF...</p>
-                        </div>
-                      }
-                    >
-                      <Page 
-                        pageNumber={pageNumber} 
-                        width={700}
-                        renderTextLayer={false}
-                        renderAnnotationLayer={false}
-                      />
-                    </Document>
-                  )}
-                  {numPages && !pdfError && (
-                    <div className="d-flex justify-content-center align-items-center mt-3 gap-2">
-                      <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => setPageNumber(page => Math.max(page - 1, 1))}
-                        disabled={pageNumber <= 1}
-                      >
-                        Previous
-                      </Button>
-                      <span>
-                        Page {pageNumber} of {numPages}
-                      </span>
-                      <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={() => setPageNumber(page => Math.min(page + 1, numPages))}
-                        disabled={pageNumber >= numPages}
-                      >
-                        Next
-                      </Button>
-                    </div>
-                  )}
+              <div style={{ padding: "10px 16px" }}>
+                <div className="mb-3">
+                  <h6 style={{ color: "#1B3564" }}>
+                    Manish Kumar visa pdf.pdf
+                  </h6>
                 </div>
-              )}
-            </div>
-          </Typography>
-        </Box>
-      </Modal>
+                {showPreview && (
+                  <div
+                    style={{
+                      border: '1px solid rgba(0, 0, 0, 0.3)',
+                      height: '750px',
+                      padding: '16px',
+                      borderRadius: '8px',
+                      backgroundColor: '#fff',
+                      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}
+                  >
+                    {pdfError ? (
+                      <div className="text-center text-danger">
+                        <p>{pdfError}</p>
+                      </div>
+                    ) : (
+                      <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.4.120/build/pdf.worker.min.js">
+                        <Viewer 
+                          fileUrl="/Manish Kumar visa pdf.pdf"
+                          plugins={[pageNavigationPluginInstance]}
+                          defaultScale={SpecialZoomLevel.PageFit}
+                        />
+                      </Worker>
+                    )}
+                  </div>
+                )}
+              </div>
+            </Typography>
+          </Box>
+        </Modal>
       </div>
     </>
   );
