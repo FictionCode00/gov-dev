@@ -132,7 +132,7 @@ export const AppDetail = () => {
             <div className="d-flex align-items-center gap-2">
               <img
                 src={PDFfile}
-                onClick={handleOpen}
+                // onClick={handleOpen}
                 alt="pdf-file"
                 style={{ width: "18px", cursor: "pointer" }}
               />
@@ -271,14 +271,14 @@ export const AppDetail = () => {
                   View correspondence item
                 </h4>
                 <div className="d-flex align-items-center gap-2">
-                  <Button
+                  {/* <Button
                     variant="contained"
                     startIcon={<VisibilityIcon />}
                     onClick={() => setShowPreview(!showPreview)}
                     style={{ backgroundColor: "#0949A4" }}
                   >
                     {showPreview ? "Hide Preview" : "Show Preview"}
-                  </Button>
+                  </Button> */}
                   <Button
                     variant="contained"
                     startIcon={<DownloadIcon />}
@@ -330,7 +330,7 @@ export const AppDetail = () => {
                     Manish Kumar visa pdf.pdf
                   </h6>
                 </div>
-                {showPreview && (
+                {/* {showPreview && ( */}
                   <div
                     style={{
                       border: '1px solid rgba(0, 0, 0, 0.3)',
@@ -358,7 +358,7 @@ export const AppDetail = () => {
                       </Worker>
                     )}
                   </div>
-                )}
+                {/* )} */}
               </div>
             </Typography>
           </Box>
