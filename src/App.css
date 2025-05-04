@@ -47,6 +47,7 @@ padding: 8px 16px;
 .labelInput label {
   font-size: 16px;
   font-weight: 400;
+  color: #000;
 }
  .cmn-button {
   background-color: #e5e5e5;
@@ -239,8 +240,36 @@ font-size: 12px !important;
 .errorMsg-content {
 color: #1b3564;
 text-decoration: underline;
-font-size: 12px;
+font-size: 16px;
 }
 .lastAccordian:last-child {
 margin-bottom: 25px;
+}
+.fieldError, .wc-fieldindicator-type-error {
+  border: 1px solid #c41a1f;
+  background-color: #fff;
+  border-left-width: 2rem;
+  color: #000;
+  display: block;
+  margin: .5em .25em .25em;
+  max-width: 25rem;
+  padding: .25em;
+  position: relative;
+}
+.fieldError::before, .wc-fieldindicator-type-error::before {
+  border-color: transparent transparent #c41a1f;
+  border-style: solid;
+  border-width: 0 .3333rem .5rem;
+  content: "";
+  display: inline-block;
+  left: -1.3333rem;
+  position: absolute;
+  top: -.5rem;
+}
+.errorBefore {
+  position: absolute;
+  left: -24px;
+  top: 9px;
+  width: 15px;
+  height: 15px;
 }
