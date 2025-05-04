@@ -24,7 +24,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/page-navigation/lib/styles/index.css';
 
 import DownloadIcon from "@mui/icons-material/Download";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
 // import { pdfjs } from 'react-pdf';
 
 
@@ -48,12 +48,12 @@ const correspondenceDate = "15 march 2025";
 export const AppDetail = () => {
   const [open, setOpen] = useState(false);
 
-  const [showPreview, setShowPreview] = useState(false);
+  // const [showPreview, setShowPreview] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    setShowPreview(false);
+    // setShowPreview(false);
     setPdfError(null);
     // setPageNumber(1);
   };
