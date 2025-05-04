@@ -155,13 +155,13 @@ export const AppDetail = () => {
                     <p className="cmnwordsfonts">
                       For information about a person's current Australian visa
                       status see{" "}
-                      <a href="#" className="text-blue-600 underline">
+                      <a href="#" className=" underline" style={{color: "#072243"}}>
                         Visa Entitlement Verification Online
                       </a>
                     </p>
                     <p className="cmnwordsfonts">
                       For Maritime Crew Visa holder information see{" "}
-                      <a href="#" className="text-blue-600 underline">
+                      <a href="#" className="underline"  style={{color: "#072243"}}>
                         Maritime Crew visa status enquiry
                       </a>
                     </p>
@@ -173,7 +173,7 @@ export const AppDetail = () => {
                         id="panel1-header"
                         style={{ backgroundColor: "#dddddd66" }}
                       >
-                        <Typography className="blueHeading" component="span">
+                        <Typography className="blueHeadingAccording" component="span">
                           {userDetail?.lastName}, {userDetail?.firstName} (
                           {userDetail?.dob})
                         </Typography>
@@ -200,7 +200,7 @@ export const AppDetail = () => {
                             </li>
                           </ul>
                           <h4 className="accordingHeading">Grant letter</h4>
-                          <a>View grant letter</a>
+                          <a onClick={handleOpen} style={{cursor: "pointer", fontSize: "12px", color: "#072243"}}>View grant letter</a>
                         </div>
                       </AccordionDetails>
                       <h4
@@ -214,7 +214,7 @@ export const AppDetail = () => {
                         (item, index) => (
                           // item.isValid &&
                           //   {userDetail.visaSummary.visaCondition.filter((item)=>item.isValid).map((item,index) => (
-                          <Accordion key={index} style={{ marginLeft: "40px" }}>
+                          <Accordion className="lastAccordian" key={index} style={{ marginLeft: "40px" }}>
                             <AccordionSummary
                               expandIcon={<ExpandMoreIcon />}
                               aria-controls="panel1-content"
@@ -222,13 +222,13 @@ export const AppDetail = () => {
                               style={{ backgroundColor: "#dddddd66" }}
                             >
                               <Typography
-                                className="blueHeading"
+                                className="blueHeadingAccording"
                                 component="span"
                               >
                                 {item.visaName}
                               </Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
+                            <AccordionDetails style={{fontSize: "12px", fontWeight: "500"}}>
                               {item.visaContent}
                             </AccordionDetails>
                           </Accordion>
@@ -244,16 +244,16 @@ export const AppDetail = () => {
         <div className="footer-sec">
           <ul>
             <li>
-              <a>Accessibility</a>
+              <a className="footerA">Accessibility</a>
             </li>
             <li>
-              <a>Copyright & Disclaimer</a>
+              <a className="footerA">Online Security</a>
             </li>
             <li>
-              <a>Online Security</a>
+              <a className="footerA">Privacy</a>
             </li>
             <li>
-              <a>Privacy</a>
+              <a className="footerA">Copyright & Disclaimer</a>
             </li>
           </ul>
         </div>

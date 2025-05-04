@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MainLogo from "../../assets/images/logostacked.png";
 import Question from "../../assets/images/question-mark.png";
+import ErrorIcon from "../../assets/images/errorIcon.png";
 import { useState } from "react";
 
 export const Login = () => {
@@ -36,6 +37,16 @@ export const Login = () => {
         <h5 className="text-white fw-medium mb-0">Login</h5>
     </div>
 <div className="loginMainContent bg-white p-3">
+    <div className="errorMsg mb-3">
+        <h5 className="text-white mb-0 d-flex align-items-center gap-2" style={{backgroundColor: "#c41a1f",fontSize: "12px"}}>
+            <img src={ErrorIcon} alt="error" style={{width: "11px", height: "11px"}}/>
+            An error has occurred</h5>
+        <div className="p-2">
+            <p className="errorMsg-content mb-1">Login failed: Invalid username or password</p>
+            <p className="errorMsg-content mb-1">Please Check the username and password you have entered.</p>
+            <p className="errorMsg-content mb-1">Note: Password are case sensitive. Check that your cAPS LoCK is off.</p>
+        </div>
+    </div>
     <h4>Login to ImmiAccount</h4>
     <div className="row">
         <div className="col-md-12">
@@ -53,8 +64,8 @@ export const Login = () => {
                  <div className="d-flex align-items-center gap-2 w-75">
                     <input
                         type="text"
-                        placeholder="required"
-                        className="w-100"
+                        placeholder="required"                        
+                        style={{height: "22px", width: "520px"}}
                         value={inputUsername}
                         onChange={e => setInputUsername(e.target.value)}
                     />
@@ -70,9 +81,9 @@ export const Login = () => {
                     <div className="d-flex align-items-center gap-2 w-75">
                         <input
                             type="password"
-                            placeholder="required"
-                            className="w-100"
+                            placeholder="required"                            
                             value={inputPassword}
+                        style={{height: "22px", width: "520px"}}
                             onChange={e => setInputPassword(e.target.value)}
                         />
                         <img src={Question} data-toggle="tooltip" data-placement="top" title="Tooltip on top" alt="question"/>
