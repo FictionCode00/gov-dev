@@ -27,9 +27,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 // import { pdfjs } from 'react-pdf';
 
-import { pdfjs } from "react-pdf";
-console.log(pdfjs.version);
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const style = {
   position: "absolute",
@@ -50,8 +47,7 @@ const correspondenceDate = "15 march 2025";
 
 export const AppDetail = () => {
   const [open, setOpen] = useState(false);
-  const [numPages, setNumPages] = useState<number | null>(null);
-  const [pageNumber, setPageNumber] = useState(1);
+
   const [showPreview, setShowPreview] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const handleOpen = () => setOpen(true);
@@ -59,7 +55,7 @@ export const AppDetail = () => {
     setOpen(false);
     setShowPreview(false);
     setPdfError(null);
-    setPageNumber(1);
+    // setPageNumber(1);
   };
 
   const userDetail = {
