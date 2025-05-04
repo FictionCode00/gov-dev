@@ -1,0 +1,221 @@
+input {
+  border: 1px solid #ccc;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+a {
+  text-decoration: underline !important;
+}
+button {
+  border: 1px solid #000;
+}
+.loginPage {
+  background-color: #ccc;
+  height: 100vh;
+  overflow: auto;
+}
+
+.header-sec {
+  background-image: linear-gradient(to right, #1B3564 , #0C6B9A);
+  padding: 15px 20px;
+}
+.header-sec img , .header-sec1 img {
+  width: 100px;
+  object-fit: contain;
+}
+.header-sec h4 , .header-sec1 h4{
+  font-size: 28px;
+  font-weight: 400;
+}
+.loginMain {
+  background-color: #ccc;
+}
+.loginMainhead {
+background-color: #1B3564;
+padding: 8px 16px;
+}
+.loginMainhead h5 {
+  font-size: 16px;
+}
+.loginMainContent h4 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1b3564;
+}
+.labelInput label {
+  font-size: 16px;
+  font-weight: 400;
+}
+ .cmn-button {
+  background-color: #e5e5e5;
+  padding: 8px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+ }
+ .cmn-button button {
+  border: 1px solid #000;
+  padding: 0px 10px;
+ }
+ .cmn-button {
+  margin: 15px 0px;
+ }
+ .footer-sec {
+  background-color: #e5e5e5;
+    color: #000;
+    border-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 0.25em;
+ }
+ .footer-sec li::before {
+  content: "|";
+  display: inline-block;
+  margin-right: .5em;
+  text-align: right;
+  width: .5em;
+ }
+ .footer-sec li {
+  display: inline-block;
+ }
+ .footer-sec ul {
+  list-style-type: none;
+    padding: 0 0 0 1em;
+    position: relative;
+ }
+ .footer-sec ul li a {
+  color: #1b3564 !important;
+ }
+ .footer-sec li:first-child::before {
+  content: "";
+  margin-left: 0;
+  position: absolute;
+ }
+ .labelInput img {
+  width: 15px;
+  height: 15px;
+ }
+ .detailTabbing {
+  text-transform: capitalize !important;
+  padding: 5px 20px !important;
+  font-size: 12px !important;
+  color: #000 !important;
+  min-height: 30px !important;
+}
+ .detailTabbingContent {
+  padding: 0px !important;
+ }
+ .css-1qltlow-MuiTabs-indicator {
+  display: none !important;
+ }
+
+ .sidebar {
+  border: 1px solid #ddd;
+  font-family: Arial, sans-serif;
+}
+
+.sidebar .section {
+  margin-bottom: 20px;
+}
+
+.sidebar .section-title {
+  color: #0055cc;
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-size: 12px;
+  padding: 8px 10px;
+  background-color: #dddddd66;
+}
+.adjustbgColor {
+  background-color: #fff !important;
+  padding: 10px;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+}
+.appdetailrightcontent {
+  border: 1px solid #ddd;
+}
+.blueHeading {
+  color: #0055cc;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
+.cmnwordsfonts {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 5px;
+}
+.accordingHeading {
+  font-size: 16px;
+  font-weight: 700;
+}
+.accordianData ul {
+  padding-left: 0px;
+}
+.accordianData ul li {
+  list-style: none;
+  display: flex;
+}
+.accordianData ul li p:first-child {
+  width: 25%;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.accordianData ul li p:last-child {
+  font-weight: 600;
+  width: 75%;
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.css-yfrx4k-MuiAccordionSummary-content.Mui-expanded {
+  margin: 10px 0 !important;
+}
+.css-1f1pi2l-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+  min-height: auto !important;
+}
+.addCloseBtn {
+  width: 25px;
+  height: 26px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addCloseBtn img {
+  
+}
+.textField input {
+  height: auto !important;
+  padding: 8px !important;
+  font-size: 12px;
+  color: #1B3564;
+  text-decoration: underline;
+
+}
+.textField label {
+  font-weight: 900 !important;
+  color: #000 !important;
+}
+.css-jhczcq-MuiTabs-root {
+  min-height: 30px !important;
+}
+.dropdownCmn-btn.css-1hqyq1o-MuiButtonBase-root-MuiButton-root {
+  font-size: 12px !important;
+  color: #000000 !important;
+  text-transform: capitalize !important;
+  margin-left: 0px !important;
+  border-left: 1px solid #ddd !important;
+  border-radius: 0px !important;
+}
