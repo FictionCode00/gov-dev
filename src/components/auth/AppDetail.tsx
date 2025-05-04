@@ -303,19 +303,19 @@ export const AppDetail = () => {
               <div style={{ marginBottom: "16px" }}>
                 <div
                   style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
+                    // display: "flex",
+                    // flexDirection: "row",
+                    // justifyContent: "space-between",
                     fontSize: "16px",
                   }}
                 >
-                  <div>
-                    <strong>Correspondence title:</strong>
-                    <span style={{ marginLeft: 8 }}>{correspondenceTitle}</span>
+                  <div className="w-100 d-flex">
+                    <p className="w-50 mb-0" style={{fontSize: "14px", fontWeight: "500"}}>Correspondence title:</p>
+                    <p className="w-50 mb-0" style={{fontSize: "14px", fontWeight: "500"}}>{correspondenceTitle}</p>
                   </div>
-                  <div>
-                    <strong>Date sent:</strong>
-                    <span style={{ marginLeft: 8 }}>{correspondenceDate}</span>
+                  <div className="w-100 d-flex">
+                    <p className="w-50 mb-0" style={{fontSize: "14px", fontWeight: "500"}}>Date sent:</p>
+                    <p className="w-50 mb-0" style={{fontSize: "14px", fontWeight: "500"}}>{correspondenceDate}</p>
                   </div>
                 </div>
               </div>
