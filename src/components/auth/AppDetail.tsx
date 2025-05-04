@@ -124,7 +124,7 @@ export const AppDetail = () => {
           <img src={MainLogo} alt="logo" />
           <div className="text-end">
             <p className="mb-0 text-white">
-              SONI, Gautam <a>Manage Account</a> <a>Logout</a>
+              Kumar, Manish <a>Manage Account</a> <a>Logout</a>
             </p>
             <h4 className="text-white">Online Lodgement</h4>
           </div>
