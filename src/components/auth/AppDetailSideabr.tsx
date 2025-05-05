@@ -1,6 +1,4 @@
-
-
-const AppDetailSidebar = () => {
+const AppDetailSidebar = ({ onVisaGrantClick }: { onVisaGrantClick: () => void }) => {
 
 
   return (
@@ -17,7 +15,7 @@ const AppDetailSidebar = () => {
           <li>
             <b>Update details</b>
           </li>
-          <li>
+          <li onClick={onVisaGrantClick} style={{ cursor: 'pointer' }}>
             <b>Visa grant details</b>
           </li>
         </ul>

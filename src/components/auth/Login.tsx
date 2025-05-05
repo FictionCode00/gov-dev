@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export const Login = () => {
   const user = {
-    username: "manishkumarji0254",
+    username: "manishkumarji0254@gmail.com",
     Password: "Creative@12345",
   };
 
@@ -206,7 +206,7 @@ export const Login = () => {
                 </div>
               </div>
             </div>
-          </div>
+         
           <div className="cmn-button">
             <button>Cancel</button>
             <button onClick={handleClick}>Login</button>
@@ -229,6 +229,7 @@ export const Login = () => {
               alt="question"
             />
           </div>
+        </div>
         </div>
         {/* </div> */}
         <div className="footer-sec">

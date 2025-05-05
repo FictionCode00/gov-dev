@@ -47,15 +47,24 @@ const correspondenceDate = "15 march 2025";
 
 export const AppDetail = () => {
   const [open, setOpen] = useState(false);
-
+  const [expanded, setExpanded] = useState<string | false>(false);
   // const [showPreview, setShowPreview] = useState(false);
   const [pdfError, setPdfError] = useState<string | null>(null);
+  
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
     // setShowPreview(false);
     setPdfError(null);
     // setPageNumber(1);
+  };
+
+  const handleVisaGrantClick = () => {
+    setExpanded('panel1');
+  };
+
+  const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? panel : false);
   };
 
   const userDetail = {
@@ -142,7 +151,7 @@ export const AppDetail = () => {
           <div className="adjustbgColor">
             <div className="row">
               <div className="col-md-3 pe-0">
-                <AppDetailSidebar />
+                <AppDetailSidebar onVisaGrantClick={handleVisaGrantClick} />
               </div>
               <div className="col-md-9 ">
                 <div className="appdetailrightcontent p-2">
@@ -166,7 +175,7 @@ export const AppDetail = () => {
                       </a>
                     </p>
 
-                    <Accordion>
+                    <Accordion expanded={expanded === 'panel1'} onChange={handleAccordionChange('panel1')}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1-content"
