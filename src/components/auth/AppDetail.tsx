@@ -64,6 +64,7 @@ export const AppDetail = () => {
   };
 
   const handleAccordionChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+    console.log("event")
     setExpanded(isExpanded ? panel : false);
   };
 
